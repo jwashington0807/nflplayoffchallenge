@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+    background: #00042D;
+}
+
+body {
+    font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+    margin: 0;
+    font-size: 1.4rem;
+    -webkit-font-smoothing: antialiased;
+}
+
+p, ol, ul, li, a {
+    color: #FFF;
+    font-size: 1.4rem;
+    line-height: 3.2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.columnitems {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0px;
+}
+
+.formbody {
+    margin-top: 232px;
+    width: 800px;
+    z-index: 1;
+    color: #FFF;
+}
+
+.disabledcontrol {
+    background-color: gray !important;
+}

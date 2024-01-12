@@ -1,0 +1,56 @@
+<div class="content">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="formbody">
+        <div class="row g-4">
+            <div class="col-lg">
+                <label class="form-label">First Name</label>
+                <input type="text" formControlName="first" class="form-control" />
+                <div *ngIf="submitted && f['first'].errors" class="text-danger">
+                    <div *ngIf="f['first'].errors['required']">First Name is required</div>
+                </div>
+            </div>
+            <div class="col-lg">
+                <label class="form-label">Last Name</label>
+                <input type="text" formControlName="last" class="form-control" />
+                <div *ngIf="submitted && f['last'].errors" class="text-danger">
+                    <div *ngIf="f['last'].errors['required']">Last Name is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg">
+                <label class="form-label">Email</label>
+                <input type="text" formControlName="email" class="form-control disabledcontrol" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <label class="form-label">Team Name</label>
+                <input type="text" formControlName="teamname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['teamname'].errors }" />
+                <div *ngIf="submitted && f['teamname'].errors" class="invalid-feedback">
+                    <div *ngIf="f['teamname'].errors['required']">Team Name is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg">
+                <div class="center columnitems">
+                    <div>
+                        <button class="btn btn-primary">
+                            Save
+                        </button>
+                    </div>
+                    <div>
+                        <a routerLink="../" class="btn btn-primary">Go Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg">
+                    <div class="center error" *ngIf="invalid">{{errorMessage}}</div>
+            </div>
+        </div>
+    </form>
+    
+</div>

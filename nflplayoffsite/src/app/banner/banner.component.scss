@@ -1,0 +1,41 @@
+.banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.banner-rows {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 50px;
+    white-space: nowrap;
+}
+
+.banner-primary {
+    background-color: none;
+    color: #fff;
+}
+
+#menu ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: right;
+    gap: 17px;
+    margin-top: 10px;
+}
+
+#menu ul li {
+    display: flex;
+    padding-bottom: 2px;
+    cursor: pointer;
+}
+
+#menu ul li .navlink {
+    margin: 0 4px;
+    padding: 0px;
+    cursor: pointer;
+    display: flex;
+}
