@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "nflplayoffsite:build:production"
+              "buildTarget": "nflplayoffsite:build:production"
             },
             "development": {
-              "browserTarget": "nflplayoffsite:build:development"
+              "buildTarget": "nflplayoffsite:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "nflplayoffsite:build"
+            "buildTarget": "nflplayoffsite:build"
           }
         },
         "test": {
