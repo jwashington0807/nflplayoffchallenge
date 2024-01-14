@@ -1,0 +1,17 @@
+.teamboxlabel {
+    width: 30px;
+    background-color: #FFF;
+    color: #000;
+    margin-bottom: 0px;
+    vertical-align: middle;
+}
+
+.teamrow {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0px;
+}
+
+.teamrow > .form-control {
+    border-radius: 0px;
+}

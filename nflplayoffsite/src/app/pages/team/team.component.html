@@ -1,12 +1,94 @@
 <div class="content">
 
-    <mat-card class="example-card">
-        <mat-card-content>
-            <table mat-table [dataSource]="myDataArray">
-                ...
-            </table>
-        </mat-card-content>
-    </mat-card>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="formbody">
+        <div class="row g-4">
+            <div class="col-lg">
+                <label class="form-label labelblock">Week</label>
+                <input type="select" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+            </div>
+            <div class="col-lg">
+                <label class="form-label labelblock">Total Points</label>
+                <input type="text" formControlName="totalpoints" class="form-control" />
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">QB</label>
+                    <input type="text" formControlName="teamqb" class="form-control" />
+                    <label class="form-label teamboxlabel" formControlName="qbmult"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">WR1</label>
+                    <input type="text" formControlName="teamwr1" class="form-control" />
+                    <label class="form-label teamboxlabel" formControlName="wr1mult"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">WR2</label>
+                    <input type="txt" formControlName="teamwr2" class="form-control" />
+                    <label class="form-label teamboxlabel" formControlName="wr2mult"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">RB1</label>
+                    <input type="text" formControlName="teamrb1" class="form-control" />
+                    <label class="form-label teamboxlabel" formControlName="rb1mult"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">RB2</label>
+                    <input type="text" formControlName="teamrb2" class="form-control" />
+                    <label class="form-label teamboxlabel" formControlName="rb2mult"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">TE</label>
+                    <input type="txt" formControlName="teamte" class="form-control" />
+                    <label class="form-label teamboxlabel" formControlName="temult"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">K</label>
+                    <input type="txt" formControlName="teamk" class="form-control" />
+                    <label class="form-label teamboxlabel" formControlName="kmult"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">DEF</label>
+                    <input type="txt" formControlName="teamdef" class="form-control" />
+                    <label class="form-label teamboxlabel" formControlName="defmult"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg">
+                    <div class="center error" *ngIf="invalid">{{errorMessage}}</div>
+            </div>
+        </div>
+    </form>
     
 </div>
 
