@@ -45,3 +45,15 @@ a {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-mdc-form-field-subscript-wrapper {
+    display: none;
+}
+
+.teamrow > .mat-mdc-form-field > .mdc-text-field--filled {
+     border-top-left-radius: 0; 
+     border-top-right-radius: 0; 
+     border-bottom-right-radius: 0; 
+     border-bottom-left-radius: 0;
+}

@@ -1,9 +1,10 @@
 .teamboxlabel {
-    width: 30px;
+    width: 70px;
     background-color: #FFF;
     color: #000;
     margin-bottom: 0px;
     vertical-align: middle;
+    border: 0px;
 }
 
 .teamrow {
@@ -14,4 +15,8 @@
 
 .teamrow > .form-control {
     border-radius: 0px;
+}
+
+.mat-mdc-form-field {
+    width: 100%;
 }

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Profile, Register } from '../models/user';
+import { Observable } from 'rxjs';
+import { Players } from '../models/players';
+import { Teams, UserTeam } from '../models/teams';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -43,5 +46,19 @@ export class SiteproviderService {
     { profile }, httpOptions);    
   }
 
+  geteligibleplayers(): Observable<Players[]>{
+    return this.http.get<Players[]>(this.apiPath + "/getplayers.php");  
+  }
 
+  geteligibleteams(): Observable<Teams[]>{
+    return this.http.get<Teams[]>(this.apiPath + "/getteams.php");  
+  }
+
+  getuserweekteam(week: number, emailaddress: string) {
+    return this.http.get<UserTeam>(this.apiPath + "/getuserweekteam.php?week=" + week + "&useremail=" + emailaddress);
+  }
+
+  getweekeligible(week: number) {
+    return this.http.get<any>(this.apiPath + "/getweeklystatus.php?week=" + week);
+  }
 }

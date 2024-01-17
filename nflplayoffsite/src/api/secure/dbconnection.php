@@ -10,8 +10,7 @@ class DBConnection
 	public function connectToDatabase(){
 		
 		// Create connection
-		//$this -> con = mysqli_connect("localhost","justmejt_nfluser","Kima2022!","justmejt_NFLPlayoffChallenge")
-		$this -> con = mysqli_connect("localhost:3306","root","","justmejt_nflplayoffchallenge")
+		$this -> con = mysqli_connect("justmejt.com:3306","justmejt_nfluser","Kima2022!","justmejt_NFLPlayoffChallenge")
 			or die ('Failed to connect to database');
 
 		// Check connection
