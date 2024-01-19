@@ -5,20 +5,25 @@ export interface Teams {
 
 export interface UserTeam {
     userid: number,
-	qb: string,
 	qbid: number,
-	wr1: string,
 	wr1id: number,
-	wr2: string,
 	wr2id: number,
-	rb1: string,
 	rb1id: number,
-    rb2: string,
 	rb2id: number,
-    te: string,
 	teid: number,
-	pk: string,
 	pkid: number,
-    def: string,
 	defid: number
+}
+
+export class UserTeamUpdate {
+    email?: number;
+	week?: number;
+	qbid?: number;
+	wr1id?: number;
+	wr2id?: number;
+	rb1id?: number;
+	rb2id?: number;
+	teid?: number;
+	pkid?: number;
+	defid?: number;
 }

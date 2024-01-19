@@ -21,8 +21,14 @@ a {
 }
 
 .content {
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* margin: 0 auto; */
+    position: relative;
+    /* top: 0; */
+    /* left: 0; */
+    margin: auto;
+    width: 50%;
 }
 
 .columnitems {

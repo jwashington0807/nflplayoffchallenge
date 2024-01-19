@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Players } from 'src/app/models/players';
-import { Teams } from 'src/app/models/teams';
+import { Teams, UserTeamUpdate } from 'src/app/models/teams';
 import { SiteproviderService } from 'src/app/providers/siteprovider.service';
 import { TokenstorageService } from 'src/app/providers/tokenstorage.service';
 
@@ -25,6 +25,9 @@ export class TeamComponent implements OnInit{
   teselected: number = -1;
   pkselected: number = -1;
   defselected: number = -1;
+
+  // Form Controls 
+  btndisable = false;
 
   // Styling Controls
   wr2style: string = '';
@@ -66,6 +69,16 @@ export class TeamComponent implements OnInit{
     this.accountService.geteligibleteams().subscribe(y => {
       this.teams = y;
     });
+
+    /*this.f['teamqb'].disable();
+    this.f['teamwr1'].disable();
+    this.f['teamwr2'].disable();
+    this.f['teamrb1'].disable();
+    this.f['teamrb2'].disable();
+    this.f['teamte'].disable();
+    this.f['teamk'].disable();
+    this.f['teamdef'].disable();*/
+    this.btndisable = true;
   }
 
   // convenience getter for easy access to form fields
@@ -102,49 +115,54 @@ export class TeamComponent implements OnInit{
 
     if(user.email) {
 
-      //Get all eligible players
+      // Get all eligible players
       this.accountService.getuserweekteam(week, user.email).subscribe(x => {
 
         //Set Fields on Form with Data
-        this.qbselected = x.qbid;
-        this.wr1selected = x.wr1id;
-        this.wr2selected = x.wr2id;
-        this.rb1selected = x.rb1id;
-        this.rb2selected = x.rb2id;
-        this.teselected = x.teid;
-        this.pkselected = x.pkid;
-        this.defselected = x.defid;
-
-        // Set the Background Color
-
-        this.accountService.getweekeligible(week).subscribe(data => {
-
-            if(data['0'] == 0) {
-              // Disable the form
-              this.f['teamqb'].disable();
-              this.f['teamwr1'].disable();
-              this.f['teamwr2'].disable();
-              this.wr2style = "background-color: #000";
-              this.f['teamrb1'].disable();
-              this.f['teamrb2'].disable();
-              this.f['teamte'].disable();
-              this.f['teamk'].disable();
-              this.f['teamdef'].disable();
-            }
-            else 
-            {
-              // Enable the form
-              this.f['teamqb'].enable();
-              this.f['teamwr1'].enable();
-              this.f['teamwr2'].enable();
-              this.f['teamrb1'].enable();
-              this.f['teamrb2'].enable();
-              this.f['teamte'].enable();
-              this.f['teamk'].enable();
-              this.f['teamdef'].enable();
-            }
-        });
+        x.qbid != null ? this.qbselected = x.qbid : this.qbselected = -1;
+        x.wr1id != null ? this.wr1selected = x.wr1id : this.wr1selected = -1;
+        x.wr2id != null ? this.wr2selected = x.wr2id : this.wr2selected = -1;
+        x.rb1id != null ? this.rb1selected = x.rb1id : this.rb1selected = -1;
+        x.rb2id != null ? this.rb2selected = x.rb2id : this.rb2selected = -1;
+        x.teid != null ? this.teselected = x.teid : this.teselected = -1;
+        x.pkid != null ? this.pkselected = x.pkid : this.pkselected = -1;
+        x.defid != null ? this.defselected = x.defid : this.defselected = -1;
       });
+
+      // Check if week is enabled
+      this.accountService.getweekeligible(week).subscribe(data => {
+
+        if(data['0'] == 0) {
+          // Disable the form
+          this.f['teamqb'].disable();
+          this.f['teamwr1'].disable();
+          this.f['teamwr2'].disable();
+          this.f['teamrb1'].disable();
+          this.f['teamrb2'].disable();
+          this.f['teamte'].disable();
+          this.f['teamk'].disable();
+          this.f['teamdef'].disable();
+          this.btndisable = true;
+        }
+        else 
+        {
+          // Enable the form
+          this.f['teamqb'].enable();
+          this.f['teamwr1'].enable();
+          this.f['teamwr2'].enable();
+          this.f['teamrb1'].enable();
+          this.f['teamrb2'].enable();
+          this.f['teamte'].enable();
+          this.f['teamk'].enable();
+          this.f['teamdef'].enable();
+          this.btndisable = false;
+        }
+      });
+
+      // Get Rosters so that we can get multipliers
+      //this.accountService.getplayermultiplier(user.email).subscribe(data => {
+
+      //});
     }
   }
 
@@ -155,6 +173,23 @@ export class TeamComponent implements OnInit{
         return;
     }
 
+    // Get User Email
+    let user = this.tokenStorage.getUser();
 
-    }
+    const userTeam = new UserTeamUpdate();
+    userTeam.email = user.email;
+    userTeam.week = this.f['week'].value;
+    userTeam.qbid = this.qbselected;
+    userTeam.wr1id = this.wr1selected;
+    userTeam.wr2id = this.wr2selected;
+    userTeam.rb1id = this.rb1selected;
+    userTeam.rb2id = this.rb2selected;
+    userTeam.teid = this.teselected;
+    userTeam.pkid = this.pkselected;
+    userTeam.defid = this.defselected;
+
+    this.accountService.setuserlineup(userTeam).subscribe(y => {
+      
+    });
+  }
 }

@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Profile, Register } from '../models/user';
 import { Observable } from 'rxjs';
 import { Players } from '../models/players';
-import { Teams, UserTeam } from '../models/teams';
+import { Teams, UserTeam, UserTeamUpdate } from '../models/teams';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,6 +15,9 @@ const httpOptions = {
 })
 
 export class SiteproviderService {
+  getplayerrosters(email: any) {
+    throw new Error('Method not implemented.');
+  }
 
   // Variable to hold the link
   private apiPath: string = environment.apiPath;
@@ -60,5 +63,10 @@ export class SiteproviderService {
 
   getweekeligible(week: number) {
     return this.http.get<any>(this.apiPath + "/getweeklystatus.php?week=" + week);
+  }
+
+  setuserlineup(userTeam: UserTeamUpdate) {
+    return this.http.post(this.apiPath + "/setuserlineup.php", 
+    { userTeam }, httpOptions); 
   }
 }

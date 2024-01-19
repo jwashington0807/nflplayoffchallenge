@@ -43,22 +43,14 @@ if($_GET["week"] && $_GET["useremail"])
 
             // Insert the values
             $team -> userid = $result['userid'];
-            $team -> qb = $result['QB1'];
-            $team -> qbid = $result['rosterqb'];
-            $team -> wr1 = $result['WR1'];
-            $team -> wr1id = $result['rosterwr1'];
-            $team -> wr2 = $result['WR2'];
-            $team -> wr2id = $result['rosterwr2'];
-            $team -> rb1 = $result['RB1'];
-            $team -> rb1id = $result['rosterrb1'];
-            $team -> rb2 = $result['RB2'];
-            $team -> rb2id = $result['rosterrb2'];
-            $team -> te = $result['TE'];
-            $team -> teid = $result['rosterte'];
-            $team -> pk = $result['PK'];
-            $team -> pkid = $result['rosterk'];
-            $team -> def = $result['DEF'];
-            $team -> defid = $result['rosterdef'];
+            $team -> qbid = $result['QB1'];
+            $team -> wr1id = $result['WR1'];
+            $team -> wr2id = $result['WR2'];
+            $team -> rb1id = $result['RB1'];
+            $team -> rb2id = $result['RB2'];
+            $team -> teid = $result['TE'];
+            $team -> pkid = $result['PK'];
+            $team -> defid = $result['DEF'];
         }
 
         echo json_encode($team);
