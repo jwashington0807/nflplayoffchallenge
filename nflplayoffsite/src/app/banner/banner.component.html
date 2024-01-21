@@ -1,13 +1,18 @@
 <div class="banner banner-rows banner-primary">
     
-    <nav id="menu">
+    <nav id="sitenav">
         <ul>
-            <li *ngIf="!authenticated"><a class="navLink" [routerLink]="'/signup'"><img class="btnimage" src="assets/signup.png" alt="signup" /></a></li>
-            <li *ngIf="!authenticated"><a class="navLink" [routerLink]="['/signin']"><img class="btnimage" src="assets/signin.png" alt="signin" /></a></li>
-            <li *ngIf="authenticated"><a class="navLink" [routerLink]="'/leader'"><img class="btnimage" src="assets/leaderboard.png" alt="leaderboard" /></a></li>
-            <li *ngIf="authenticated"><a class="navLink" [routerLink]="'/profile'"><img class="btnimage" src="assets/profile.png" alt="profile" /></a></li>
-            <li *ngIf="authenticated"><a class="navLink" [routerLink]="'/team'"><img class="btnimage" src="assets/team.png" alt="team" /></a></li>
-            <li *ngIf="authenticated"><a class="navLink" [routerLink]="['/signout']"><img class="btnimage" src="assets/signout.png" alt="signout" /></a></li>
+            <li class="burger" (click)="toggleMenu()">
+                <i class="material-icons"> {{ isMenuOpen ? "close" : "menu" }} </i>
+            </li>
+            <li class="menu" [class.is-open]="isMenuOpen">
+                <a *ngIf="!authenticated" class="menu-item" [routerLink]="'/signup'"><img class="btnimage" src="assets/signup.png" alt="signup" /></a>
+                <a *ngIf="!authenticated" class="menu-item" [routerLink]="'/signin'"><img class="btnimage" src="assets/signin.png" alt="signin" /></a>
+                <a *ngIf="authenticated" class="menu-item" [routerLink]="'/leader'"><img class="btnimage" src="assets/leaderboard.png" alt="leaderboard" /></a>
+                <a *ngIf="authenticated" class="menu-item" [routerLink]="'/profile'"><img class="btnimage" src="assets/profile.png" alt="profile" /></a>
+                <a *ngIf="authenticated" class="menu-item" [routerLink]="'/team'"><img class="btnimage" src="assets/team.png" alt="team" /></a>
+                <a *ngIf="authenticated" class="menu-item" [routerLink]="'/signout'"><img class="btnimage" src="assets/signout.png" alt="signout" /></a>
+            </li>
         </ul>
     </nav>
 

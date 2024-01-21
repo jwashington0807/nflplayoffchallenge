@@ -13,6 +13,7 @@ export class BannerComponent {
 
   // To track if the user is currently logged in
   authenticated: boolean = false;
+  isMenuOpen = false;
 
   ngOnInit() {
 
@@ -22,5 +23,10 @@ export class BannerComponent {
       this.authenticated = true;
     }
 
+  }
+
+  /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }

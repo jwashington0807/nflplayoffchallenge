@@ -21,14 +21,14 @@ a {
 }
 
 .content {
-    /* display: flex; */
-    /* justify-content: center; */
-    /* margin: 0 auto; */
     position: relative;
-    /* top: 0; */
-    /* left: 0; */
     margin: auto;
     width: 50%;
+
+    @media (max-width: 600px) {
+        margin: 0px;
+        width: 100%;
+    }
 }
 
 .columnitems {
@@ -39,8 +39,7 @@ a {
 }
 
 .formbody {
-    margin-top: 232px;
-    width: 800px;
+    margin-top: 60px;
     z-index: 1;
     color: #FFF;
 }

@@ -5,8 +5,7 @@ header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Content-type: application/json');
 
 // Need Secure Connection
-require('./secure/dbconnection.php');
-require('./models/user.php');
+require('../secure/dbconnection.php');
 
 // Connect to DB
 $connect = new DBConnection();
@@ -14,7 +13,7 @@ $connect -> connectToDatabase();
 
 $teamid = 0;
 
-for($i = 1; $i <= 33; $i++) {
+for($i = 34; $i <= 34; $i++) {
     $url = 'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2023/teams/'.strval($i).'/athletes?limit=200';
     $response = file_get_contents($url);
 
@@ -48,9 +47,9 @@ for($i = 1; $i <= 33; $i++) {
                 }
 
                 if(validateposition($playeroutput -> position -> abbreviation) && $teamid != 0) {
-                    /*$inserttsql = "INSERT INTO players (player, team, position, active, year) 
-                    VALUES ('".mysqli_real_escape_string($connect -> con, $playeroutput -> fullName)."',".$teamid.",'".$playeroutput -> position -> abbreviation."',1,2023)";
-                    $result = mysqli_query($connect -> con, $inserttsql);*/
+                    //$inserttsql = "INSERT INTO players (player, team, position, active, year) 
+                    //VALUES ('".mysqli_real_escape_string($connect -> con, $playeroutput -> fullName)."',".$teamid.",'".$playeroutput -> position -> abbreviation."',1,2023)";
+                    //$result = mysqli_query($connect -> con, $inserttsql);
                 }
 
                 $teamid = 0;
