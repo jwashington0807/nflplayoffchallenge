@@ -53,6 +53,9 @@ if(isset($postdata) && !empty($postdata))
             }
             echo json_encode($myArray);
         }
+
+        // Close SQL Connection
+        $connect -> closeConnection();
     }
 }
 else

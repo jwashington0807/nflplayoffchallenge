@@ -5,6 +5,7 @@ import { first } from 'rxjs';
 import { SiteproviderService } from 'src/app/providers/siteprovider.service';
 import { TokenstorageService } from 'src/app/providers/tokenstorage.service';
 import { Profile } from 'src/app/models/user';
+import { BannerComponent } from 'src/app/banner/banner.component';
 
 @Component({
   selector: 'app-profile',
@@ -27,8 +28,7 @@ export class ProfileComponent {
   constructor(
     private formBuilder: FormBuilder,
     private accountService: SiteproviderService,
-    private tokenStorage: TokenstorageService,
-    private router: Router
+    private tokenStorage: TokenstorageService
   ) { }
 
   ngOnInit() {
@@ -59,7 +59,6 @@ export class ProfileComponent {
           })
 
           this.originalteam = data[0].teamname;
-
         });
       }
     }
@@ -82,8 +81,8 @@ export class ProfileComponent {
       this.accountService.setprofile(profile)
       .pipe(first())
       .subscribe((data: any)  => {
-        
-          
+        this.accountService.setMessage("Profile Updated Successfully");
+        this.accountService.setShow(true);
       });
     }
   }

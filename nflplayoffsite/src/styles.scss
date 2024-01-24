@@ -20,6 +20,11 @@ a {
     text-decoration: none;
 }
 
+// Bootstrap adjustments
+.row {
+    margin-top: 0px;
+}
+
 .content {
     position: relative;
     margin: auto;
@@ -28,6 +33,8 @@ a {
     @media (max-width: 600px) {
         margin: 0px;
         width: 100%;
+        padding: 0 10px;
+        padding-bottom: 75px;
     }
 }
 

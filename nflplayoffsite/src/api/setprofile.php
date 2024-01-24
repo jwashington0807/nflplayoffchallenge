@@ -50,6 +50,9 @@ if(isset($postdata) && !empty($postdata))
 
             echo json_encode($result);
         }
+
+        // Close SQL Connection
+        $connect -> closeConnection();
     }
 }
 else

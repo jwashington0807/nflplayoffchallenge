@@ -21,6 +21,8 @@ $menuHeight: 50px;
     color: #fff;
 }
 
+
+// Navigation
 #sitenav {
 
     ul {
@@ -76,6 +78,26 @@ $menuHeight: 50px;
                 line-height: 40px;
                 padding: 10px 0px;
             }
+        }
+    }
+
+    // Notification Bar
+    .notificationbar {
+        width: 100%;
+        position: relative;
+        height: 0px;
+        background-color: yellow;
+        color: #000;
+        transition: height 0.5s ease-out;
+
+        .message {
+            position: relative;
+            font-size: 16px;
+            padding: 7px 10px;
+        }
+
+        &.showBar {
+            height: 50px;
         }
     }
 }

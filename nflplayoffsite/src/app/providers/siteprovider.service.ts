@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Profile, Register } from '../models/user';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Players } from '../models/players';
 import { Teams, UserTeam, UserTeamUpdate } from '../models/teams';
+import { BannerComponent } from '../banner/banner.component';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,13 +16,33 @@ const httpOptions = {
 })
 
 export class SiteproviderService {
-  getplayerrosters(email: any) {
-    throw new Error('Method not implemented.');
-  }
 
   // Variable to hold the link
   private apiPath: string = environment.apiPath;
 
+  // Behavior Objects
+  private message = new BehaviorSubject('');
+  getMessage = this.message.asObservable();
+
+  private show = new BehaviorSubject(false);
+  getShow = this.show.asObservable();
+
+  setMessage(message: string) {
+    this.message.next(message);
+  }
+
+  setShow(show: boolean) {
+    this.show.next(show);
+
+    if(show) {
+      setTimeout(() => {
+        this.setShow(false);
+        this.setMessage("");
+      }, 3000);
+    }
+  }
+
+  // Constructor Method
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string) {
@@ -68,5 +89,9 @@ export class SiteproviderService {
   setuserlineup(userTeam: UserTeamUpdate) {
     return this.http.post(this.apiPath + "/setuserlineup.php", 
     { userTeam }, httpOptions); 
+  }
+
+  getplayerrosters(email: any) {
+    throw new Error('Method not implemented.');
   }
 }

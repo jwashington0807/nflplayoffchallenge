@@ -34,6 +34,9 @@ if(isset($postdata) && !empty($postdata))
             .",".$rb1id.",".$rb2id.",".$teid.",".$pkid.",".$defid.")";
     $result = mysqli_query($connect -> con, $sql);
 
+    // Close SQL Connection
+    $connect -> closeConnection();
+    
     exit();
 }
 else

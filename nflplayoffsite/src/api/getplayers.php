@@ -40,6 +40,9 @@ $players = [];
     //$players[] = $row;
 }*/
 
+// Close SQL Connection
+$connect -> closeConnection();
+
 // Return JSON back to client
 echo json_encode($output);
 

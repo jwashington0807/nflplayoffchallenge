@@ -6,14 +6,18 @@
                 <i class="material-icons"> {{ isMenuOpen ? "close" : "menu" }} </i>
             </li>
             <li class="menu" [class.is-open]="isMenuOpen">
-                <a *ngIf="!authenticated" class="menu-item" [routerLink]="'/signup'"><img class="btnimage" src="assets/signup.png" alt="signup" /></a>
-                <a *ngIf="!authenticated" class="menu-item" [routerLink]="'/signin'"><img class="btnimage" src="assets/signin.png" alt="signin" /></a>
-                <a *ngIf="authenticated" class="menu-item" [routerLink]="'/leader'"><img class="btnimage" src="assets/leaderboard.png" alt="leaderboard" /></a>
-                <a *ngIf="authenticated" class="menu-item" [routerLink]="'/profile'"><img class="btnimage" src="assets/profile.png" alt="profile" /></a>
-                <a *ngIf="authenticated" class="menu-item" [routerLink]="'/team'"><img class="btnimage" src="assets/team.png" alt="team" /></a>
+                <a *ngIf="!authenticated" class="menu-item" [routerLink]="'/signup'"><img class="btnimage" src="assets/signup.png" alt="signup" (click)="toggleMenu()" /></a>
+                <a *ngIf="!authenticated" class="menu-item" [routerLink]="'/signin'"><img class="btnimage" src="assets/signin.png" alt="signin" (click)="toggleMenu()" /></a>
+                <a *ngIf="authenticated" class="menu-item" [routerLink]="'/leader'"><img class="btnimage" src="assets/leaderboard.png" alt="leaderboard" (click)="toggleMenu()" /></a>
+                <a *ngIf="authenticated" class="menu-item" [routerLink]="'/profile'"><img class="btnimage" src="assets/profile.png" alt="profile" (click)="toggleMenu()" /></a>
+                <a *ngIf="authenticated" class="menu-item" [routerLink]="'/team'"><img class="btnimage" src="assets/team.png" alt="team" (click)="toggleMenu()" /></a>
                 <a *ngIf="authenticated" class="menu-item" [routerLink]="'/signout'"><img class="btnimage" src="assets/signout.png" alt="signout" /></a>
             </li>
         </ul>
+        <div [ngClass]="{'showBar': show}" class="notificationbar">
+           <div class="message"> 
+                {{ message }}
+            </div>
+        </div>
     </nav>
-
 </div>

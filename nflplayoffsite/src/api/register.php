@@ -64,6 +64,9 @@ if(isset($postdata) && !empty($postdata))
             // Return JSON back to client
             echo json_encode($user);
         }
+
+        // Close SQL Connection
+        $connect -> closeConnection();
     }
 }
 else

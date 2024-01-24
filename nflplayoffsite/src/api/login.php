@@ -77,6 +77,9 @@ if(isset($postdata) && !empty($postdata))
             $user -> error = "Invalid email or password";
         }
 
+        // Close SQL Connection
+        $connect -> closeConnection();
+        
         // Return JSON back to client
         echo json_encode($user);
     }
