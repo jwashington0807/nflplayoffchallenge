@@ -88,4 +88,7 @@ foreach($list as $row) {
     }
 }
 
+        // Close SQL Connection
+        $connect -> closeConnection();
+
 ?>

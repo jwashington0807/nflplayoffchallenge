@@ -242,6 +242,9 @@ else {
     echo "No results for events";
 }
 
+        // Close SQL Connection
+        $connect -> closeConnection();
+
 function findObjectById($id, $array){
 
     $counter = 0;
