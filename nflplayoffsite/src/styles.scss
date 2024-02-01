@@ -29,12 +29,12 @@ a {
     position: relative;
     margin: auto;
     width: 50%;
+    padding-bottom: 75px;
 
     @media (max-width: 600px) {
         margin: 0px;
         width: 100%;
         padding: 0 10px;
-        padding-bottom: 75px;
     }
 }
 

@@ -81,6 +81,13 @@ export class ProfileComponent {
       this.accountService.setprofile(profile)
       .pipe(first())
       .subscribe((data: any)  => {
+
+        // Update Session Variables
+        this.user.first = this.f['first'].value;
+        this.user.last = this.f['last'].value;
+        this.originalteam = this.f['teamname'].value;
+
+        // Send Notification Message
         this.accountService.setMessage("Profile Updated Successfully");
         this.accountService.setShow(true);
       });
