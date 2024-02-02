@@ -24,7 +24,7 @@ $year = 2023;
 $seasontype = 3;
 
 // Week in season type
-$week = 2;
+$week = 3;
 
 // Wildcard Events
 $url = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=".$year."&seasontype=".$seasontype."&week=".$week."";

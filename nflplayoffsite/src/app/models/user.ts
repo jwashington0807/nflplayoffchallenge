@@ -12,3 +12,7 @@ export class Profile {
     email?: string;
     team?: string;
 }
+
+export class Forgot {
+    email?: string;
+}

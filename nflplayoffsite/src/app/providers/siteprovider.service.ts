@@ -5,7 +5,7 @@ import { Profile, Register } from '../models/user';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Players } from '../models/players';
 import { Teams, UserTeam, UserTeamUpdate } from '../models/teams';
-import { BannerComponent } from '../banner/banner.component';
+import { Forgot } from '../models/user';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -93,5 +93,10 @@ export class SiteproviderService {
 
   getplayerrosters(email: any) {
     throw new Error('Method not implemented.');
+  }
+
+  forgot(forgot: Forgot) {
+    return this.http.post(this.apiPath + "/forgotpassword.php", 
+    { forgot }, httpOptions);
   }
 }

@@ -189,7 +189,8 @@ export class TeamComponent implements OnInit{
     userTeam.defid = this.defselected;
 
     this.accountService.setuserlineup(userTeam).subscribe(y => {
-      
+      this.accountService.setMessage("Team Updated Successfully");
+      this.accountService.setShow(true);
     });
   }
 }
