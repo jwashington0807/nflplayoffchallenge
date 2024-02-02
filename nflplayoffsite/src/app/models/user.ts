@@ -16,3 +16,19 @@ export class Profile {
 export class Forgot {
     email?: string;
 }
+
+export class Valid {
+    key?: string;
+    email?: string;
+}
+
+export class Reset {
+    password1?: string;
+    email?: string;
+}
+
+export class ResetQueryString {
+    key?: string;
+    email?: string;
+    action?: string;
+}

@@ -38,7 +38,8 @@ import { ResetComponent } from './pages/reset/reset.component';
     LeaderboardComponent,
     NotfoundComponent,
     SignoutComponent,
-    ForgotComponent
+    ForgotComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

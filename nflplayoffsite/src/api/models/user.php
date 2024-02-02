@@ -9,4 +9,15 @@ class User
 	public $error;
 }
 
+class UserResponse
+{
+	public $email;
+	public $error;
+}
+
+class Reset {
+	public $email;
+	public $password;
+}
+
 ?>
