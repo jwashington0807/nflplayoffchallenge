@@ -14,6 +14,7 @@ export class ForgotComponent {
 
   form!: FormGroup;
   submitted = false;
+  completed = false;
   errorMessage = '';
   
   constructor(
@@ -34,7 +35,7 @@ export class ForgotComponent {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.form.invalid) {
+    if (this.form.invalid || this.completed) {
         return;
     }
 
@@ -48,6 +49,9 @@ export class ForgotComponent {
 
         this.accountService.setMessage("Please check your email to reset your password");
         this.accountService.setShow(true);
+
+        // Disable button
+        this.completed = true;
     });
   }
 }

@@ -40,7 +40,7 @@ export class ResetComponent {
         password2: ['', { validators: [Validators.required] }]
       }, 
       {
-        validators: [ emailMatchValidator('password1', 'password2'), passwordMatchValidator('password', 'cpassword')]
+        validators: [ passwordMatchValidator('password1', 'password2')]
       });
   
   

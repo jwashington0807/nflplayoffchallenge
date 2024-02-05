@@ -35,16 +35,16 @@
         </div>
         <div class="row g-4">
             <div class="col-lg">
-                    <div class="center error" *ngIf="invalid">{{errorMessage}}</div>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg">
                 <div class="center columnitems">
                     <div>
                         <a [routerLink]="'/forgot'">Forgot Password</a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg">
+                    <div class="center error" *ngIf="invalid">{{errorMessage}}</div>
             </div>
         </div>
     </form>

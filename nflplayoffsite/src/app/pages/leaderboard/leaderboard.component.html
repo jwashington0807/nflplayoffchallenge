@@ -1,1 +1,23 @@
-<p>leaderboard works!</p>
+<div class="content">
+
+    <div [formGroup]="form" class="formbody">
+        <ng-container formArrayName="userteams">
+            <ng-container *ngFor="let teamForm of userteams.controls; let i = index">
+                <div>
+                    <mat-form-field appearance="fill">
+                        <input matInput
+                               formControlName="title"
+                               placeholder="Team Name">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <input matInput
+                               formControlName="title"
+                               placeholder="Team Score">
+                    </mat-form-field>
+                </div>
+            </ng-container>
+        </ng-container>
+    
+    </div> 
+
+</div>

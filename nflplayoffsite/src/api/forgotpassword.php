@@ -47,6 +47,8 @@ if(isset($postdata) && !empty($postdata))
             $addKey = substr(md5(uniqid(rand(),1)),3,10);
             $key = $key . $addKey;
 
+            // Encrypt Key and Email
+
             // Insert Temp Table
             $sql = "CALL tempemail('".strval($email)."' , '".strval($key)."' , '".strval($expDate)."')";
             $result = mysqli_query($connect -> con, $sql);
@@ -54,8 +56,7 @@ if(isset($postdata) && !empty($postdata))
             // Compose Email
             $output='<p>Please click on the following link to reset your password.</p>';
             $output.='<p>-------------------------------------------------------------</p>';
-            #$output.='<p><a href="https://justmejt.com/reset/'.$key.'/'.$email.'/reset" target="_blank">
-            $output.='<p><a href="http://localhost:4200/reset/'.$key.'/'.$email.'/reset" target="_blank">
+            $output.='<p><a href="https://nflplayoffs.justmejt.com/reset/'.$key.'/'.$email.'" target="_blank">
             Reset Password</a></p>';	
 
             $output.='<p>-------------------------------------------------------------</p>';
