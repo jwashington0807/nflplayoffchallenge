@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Profile, Register, Reset, Valid } from '../models/user';
+import { Leaderboard, Profile, Register, Reset, Valid } from '../models/user';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Players } from '../models/players';
 import { Teams, UserTeam, UserTeamUpdate } from '../models/teams';
@@ -109,4 +109,8 @@ export class SiteproviderService {
     return this.http.post(this.apiPath + "/userreset.php", 
             { data }, httpOptions);
   }
-}
+
+  getleaderboard() {
+    return this.http.get<Leaderboard[]>(this.apiPath + "/leaderboard.php");
+  }
+ }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Leaderboard } from 'src/app/models/user';
 import { SiteproviderService } from 'src/app/providers/siteprovider.service';
 
 @Component({
@@ -9,23 +9,16 @@ import { SiteproviderService } from 'src/app/providers/siteprovider.service';
 })
 export class LeaderboardComponent {
 
-  form = this.formBuilder.group({
-    userteams: this.formBuilder.array([])
-  });
+  constructor(private accountService: SiteproviderService) {}
 
-  constructor(private formBuilder: FormBuilder, private accountService: SiteproviderService) {}
+  leaderboard: Leaderboard[] = [];
 
-  get userteams() {
-    return this.form.controls["userteams"] as FormArray;
-  }
+  ngOnInit() {
 
-  addLesson() {
-
-    const teamForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      level: ['beginner', Validators.required]
+    //Get all teams and scores
+    this.accountService.getleaderboard().subscribe(x => {
+      this.leaderboard = x;
     });
 
-    this.userteams.push(teamForm);
   }
 }

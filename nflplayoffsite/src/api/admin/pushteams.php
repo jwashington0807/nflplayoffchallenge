@@ -12,7 +12,7 @@ $connect = new DBConnection();
 $connect -> connectToDatabase();
 
 // Variables to use
-$week = 2;
+$week = 3;
 $list = array();
 
 // Call the stored procedure and get the result

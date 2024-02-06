@@ -32,3 +32,8 @@ export class ResetQueryString {
     email?: string;
     action?: string;
 }
+
+export interface Leaderboard {
+    team?: string;
+    score?: string;
+}
