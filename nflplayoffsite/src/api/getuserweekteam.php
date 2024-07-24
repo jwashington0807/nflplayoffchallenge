@@ -51,6 +51,7 @@ if($_GET["week"] && $_GET["useremail"])
             $team -> teid = $result['TE'];
             $team -> pkid = $result['PK'];
             $team -> defid = $result['DEF'];
+            $team -> points = $result['POINTS'];
         }
 
         echo json_encode($team);

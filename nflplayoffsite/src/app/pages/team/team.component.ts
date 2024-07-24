@@ -41,7 +41,7 @@ export class TeamComponent implements OnInit{
   ngOnInit() {
     this.form = this.formBuilder.group({
         week: [''],
-        totalpoints: [{ value: null, disabled: true }],
+        totalpoints: [{ value: null}],
         teamqb: [''],
         qbmult: [''],
         teamwr1: [''],
@@ -70,14 +70,6 @@ export class TeamComponent implements OnInit{
       this.teams = y;
     });
 
-    /*this.f['teamqb'].disable();
-    this.f['teamwr1'].disable();
-    this.f['teamwr2'].disable();
-    this.f['teamrb1'].disable();
-    this.f['teamrb2'].disable();
-    this.f['teamte'].disable();
-    this.f['teamk'].disable();
-    this.f['teamdef'].disable();*/
     this.btndisable = true;
   }
 
@@ -127,6 +119,9 @@ export class TeamComponent implements OnInit{
         x.teid != null ? this.teselected = x.teid : this.teselected = -1;
         x.pkid != null ? this.pkselected = x.pkid : this.pkselected = -1;
         x.defid != null ? this.defselected = x.defid : this.defselected = -1;
+
+        // Apply Points
+        console.log(x);
       });
 
       // Check if week is enabled
@@ -158,11 +153,6 @@ export class TeamComponent implements OnInit{
           this.btndisable = false;
         }
       });
-
-      // Get Rosters so that we can get multipliers
-      //this.accountService.getplayermultiplier(user.email).subscribe(data => {
-
-      //});
     }
   }
 

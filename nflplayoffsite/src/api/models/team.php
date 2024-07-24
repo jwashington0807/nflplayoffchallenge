@@ -11,6 +11,7 @@ class Team
 	public $teid;
 	public $pkid;
 	public $defid;
+	public $points;
 }
 
 ?>

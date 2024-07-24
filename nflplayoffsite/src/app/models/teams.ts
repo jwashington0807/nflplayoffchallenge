@@ -12,7 +12,8 @@ export interface UserTeam {
 	rb2id: number,
 	teid: number,
 	pkid: number,
-	defid: number
+	defid: number,
+	points: number
 }
 
 export class UserTeamUpdate {
