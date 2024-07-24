@@ -1,0 +1,144 @@
+<div class="content">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="formbody">
+        <div class="row g-4">
+            <div class="col-lg">
+                <mat-form-field appearance="fill"> 
+                    <mat-label>Week</mat-label>
+                    <mat-select formControlName="week" (selectionChange)="getUserWeekTeam($event.value)"> 
+                        <mat-option value="1">1 (WildCard Round)</mat-option> 
+                        <mat-option value="2">2 (Divisional Round)</mat-option> 
+                        <mat-option value="3">3 (Conference Championship)</mat-option> 
+                        <mat-option value="4">4 (SuperBowl)</mat-option> 
+                    </mat-select> 
+                </mat-form-field> 
+            </div>
+            <div class="col-lg">
+                <mat-form-field appearance="fill"> 
+
+                    <input matInput formControlName="totalpoints" class="form-control" />
+                </mat-form-field> 
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">QB</label>
+                    <mat-form-field appearance="fill"> 
+                        <mat-select formControlName="teamqb" [(value)]="qbselected">
+                            <mat-option *ngFor="let item of filterbyQB" [value]="item.playerid"> {{item.player}} </mat-option>
+                        </mat-select> 
+                    </mat-form-field>
+                    <input type="text" class="teamboxlabel" formControlName="qbmult" /> 
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">WR1</label>
+                    <mat-form-field appearance="fill"> 
+                        <mat-select formControlName="teamwr1" [(value)]="wr1selected"> 
+                            <mat-option *ngFor="let item of filterbyWR" [value]="item.playerid"> {{item.player}} </mat-option>
+                        </mat-select> 
+                    </mat-form-field>
+                    <input type="text" class="form-label teamboxlabel" formControlName="wr1mult" />
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">WR2</label>
+                    <mat-form-field appearance="fill"> 
+                        <mat-select formControlName="teamwr2" [(value)]="wr2selected"> 
+                            <mat-option *ngFor="let item of filterbyWR" [value]="item.playerid"> {{item.player}} </mat-option>
+                        </mat-select> 
+                    </mat-form-field>
+                    <input type="text" class="form-label teamboxlabel" formControlName="wr2mult" />
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">RB1</label>
+                    <mat-form-field appearance="fill"> 
+                        <mat-select formControlName="teamrb1" [(value)]="rb1selected"> 
+                            <mat-option *ngFor="let item of filterbyRB" [value]="item.playerid"> {{item.player}} </mat-option>
+                        </mat-select> 
+                    </mat-form-field>
+                    <input type="text" class="form-label teamboxlabel" formControlName="rb1mult" />
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">RB2</label>
+                    <mat-form-field appearance="fill"> 
+                        <mat-select formControlName="teamrb2" [(value)]="rb2selected"> 
+                            <mat-option *ngFor="let item of filterbyRB" [value]="item.playerid"> {{item.player}} </mat-option>
+                        </mat-select> 
+                    </mat-form-field>
+                    <input type="text" class="form-label teamboxlabel" formControlName="rb2mult" />
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">TE</label>
+                    <mat-form-field appearance="fill"> 
+                        <mat-select formControlName="teamte" [(value)]="teselected"> 
+                            <mat-option *ngFor="let item of filterbyTE" [value]="item.playerid"> {{item.player}} </mat-option>
+                        </mat-select> 
+                    </mat-form-field>
+                    <input type="text" class="form-label teamboxlabel" formControlName="temult" />
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">K</label>
+                    <mat-form-field appearance="fill"> 
+                        <mat-select formControlName="teamk" [(value)]="pkselected"> 
+                            <mat-option *ngFor="let item of filterbyK" [value]="item.playerid"> {{item.player}} </mat-option>
+                        </mat-select> 
+                    </mat-form-field>
+                    <input type="text" class="form-label teamboxlabel" formControlName="kmult" />
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="teamrow">
+                    <label class="form-label teamboxlabel">DEF</label>
+                    <mat-form-field appearance="fill"> 
+                        <mat-select formControlName="teamdef" [(value)]="defselected"> 
+                            <mat-option *ngFor="let item of getTeams" [value]="item.teamsid"> {{item.teamname}} </mat-option>
+                        </mat-select> 
+                    </mat-form-field>
+                    <input type="text" class="form-label teamboxlabel" formControlName="defmult" />
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col">
+                <div class="center columnitems">
+                    <div>
+                        <a routerLink="../" class="btn btn-primary">Go Back</a>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" [disabled]="btndisable">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+</div>
+

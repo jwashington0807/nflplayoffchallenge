@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+    background: #00042D;
+}
+
+body {
+    font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+    margin: 0;
+    font-size: 1.4rem;
+    -webkit-font-smoothing: antialiased;
+}
+
+p, ol, ul, li, a {
+    color: #FFF;
+    font-size: 1.0rem;
+    line-height: 1.0rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+// Bootstrap adjustments
+.row {
+    margin-top: 0px;
+}
+
+.content {
+    position: relative;
+    margin: auto;
+    width: 50%;
+    margin-top: 50px;
+    padding-bottom: 75px;
+
+    @media (max-width: 600px) {
+        margin: 0px;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.columnitems {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0px;
+}
+
+.formbody {
+    margin-top: 60px;
+    z-index: 1;
+    color: #FFF;
+}
+
+.disabledcontrol {
+    background-color: gray !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-mdc-form-field-subscript-wrapper {
+    display: none;
+}
+
+.teamrow > .mat-mdc-form-field > .mdc-text-field--filled {
+     border-top-left-radius: 0; 
+     border-top-right-radius: 0; 
+     border-bottom-right-radius: 0; 
+     border-bottom-left-radius: 0;
+}

@@ -1,0 +1,29 @@
+<div class="content">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="formbody">
+        <div class="row g-4">
+            <div class="col-lg">
+                <label class="form-label">Email</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors['required']">Email is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg">
+                <div class="center columnitems">
+                    <div>
+                        <button class="btn btn-primary">
+                            Reset Password
+                        </button>
+                    </div>
+                    <div>
+                        <a [routerLink]="'/signin'" class="btn btn-primary">Go Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+</div>
