@@ -12,7 +12,7 @@ $connect = new DBConnection();
 $connect -> connectToDatabase();
 
 // Week 
-$week = 2;
+$week = 3;
 
 // Array to hold values
 $list = array();

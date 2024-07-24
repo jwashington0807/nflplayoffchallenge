@@ -10,6 +10,8 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { SiteproviderService } from './providers/siteprovider.service';
 import { authGuard } from './helper/auth.guard';
 import { SignoutComponent } from './pages/signout/signout.component';
+import { ForgotComponent } from './pages/forgot/forgot.component';
+import { ResetComponent } from './pages/reset/reset.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'team', component: TeamComponent, canActivate: [authGuard]},
   { path: 'leader', component: LeaderboardComponent, canActivate: [authGuard]},
   { path: 'signout', component: SignoutComponent, canActivate: [authGuard]},
+  { path: 'forgot', component: ForgotComponent},
+  { path: 'reset/:key/:email', component: ResetComponent},
   { path: '**', component: NotfoundComponent }
 ];
 

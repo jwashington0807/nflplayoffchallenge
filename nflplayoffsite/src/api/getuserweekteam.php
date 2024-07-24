@@ -52,6 +52,14 @@ if($_GET["week"] && $_GET["useremail"])
             $team -> pkid = $result['PK'];
             $team -> defid = $result['DEF'];
             $team -> points = $result['POINTS'];
+            $team -> qbmult = $result['QBMULT'];
+            $team -> wr1mult = $result['WR1MULT'];
+            $team -> wr2mult = $result['WR2MULT'];
+            $team -> rb1mult = $result['RB1MULT'];
+            $team -> rb2mult = $result['RB2MULT'];
+            $team -> temult = $result['TEMULT'];
+            $team -> pkmult = $result['PKMULT'];
+            $team -> defmult = $result['DEFMULT'];
         }
 
         echo json_encode($team);

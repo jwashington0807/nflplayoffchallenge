@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { first } from 'rxjs';
 import { SiteproviderService } from 'src/app/providers/siteprovider.service';
 import { TokenstorageService } from 'src/app/providers/tokenstorage.service';
 import { Profile } from 'src/app/models/user';
-import { BannerComponent } from 'src/app/banner/banner.component';
 
 @Component({
   selector: 'app-profile',
@@ -81,6 +79,13 @@ export class ProfileComponent {
       this.accountService.setprofile(profile)
       .pipe(first())
       .subscribe((data: any)  => {
+
+        // Update Session Variables
+        this.user.first = this.f['first'].value;
+        this.user.last = this.f['last'].value;
+        this.originalteam = this.f['teamname'].value;
+
+        // Send Notification Message
         this.accountService.setMessage("Profile Updated Successfully");
         this.accountService.setShow(true);
       });

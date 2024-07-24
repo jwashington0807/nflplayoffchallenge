@@ -43,21 +43,21 @@ export class TeamComponent implements OnInit{
         week: [''],
         totalpoints: [{ value: null}],
         teamqb: [''],
-        qbmult: [''],
+        qbmult: [{ value: null, disabled: true }],
         teamwr1: [''],
-        wr1mult: [''],
+        wr1mult: [{ value: null, disabled: true }],
         teamwr2: [''],
-        wr2mult: [''],
+        wr2mult: [{ value: null, disabled: true }],
         teamrb1: [''],
-        rb1mult: [''],
+        rb1mult: [{ value: null, disabled: true }],
         teamrb2: [''],
-        rb2mult: [''],
+        rb2mult: [{ value: null, disabled: true }],
         teamte: [''],
-        temult: [''],
+        temult: [{ value: null, disabled: true }],
         teamk: [''],
-        kmult: [''],
+        kmult: [{ value: null, disabled: true }],
         teamdef: [''],
-        defmult: ['']
+        defmult: [{ value: null, disabled: true }]
     });
 
     //Get all eligible players
@@ -120,8 +120,21 @@ export class TeamComponent implements OnInit{
         x.pkid != null ? this.pkselected = x.pkid : this.pkselected = -1;
         x.defid != null ? this.defselected = x.defid : this.defselected = -1;
 
-        // Apply Points
-        console.log(x);
+        if(x.points != null){
+          this.f['totalpoints'].setValue(x.points);
+        }
+        else {
+          this.f['totalpoints'].setValue(0);
+        }
+        
+        this.f['qbmult'].setValue("x" + x.qbmult);
+        this.f['wr1mult'].setValue("x" + x.wr1mult);
+        this.f['wr2mult'].setValue("x" + x.wr2mult);
+        this.f['rb1mult'].setValue("x" + x.rb1mult);
+        this.f['rb2mult'].setValue("x" + x.rb2mult);
+        this.f['temult'].setValue("x" + x.temult);
+        this.f['kmult'].setValue("x" + x.pkmult);
+        this.f['defmult'].setValue("x" + x.defmult);
       });
 
       // Check if week is enabled
@@ -179,7 +192,8 @@ export class TeamComponent implements OnInit{
     userTeam.defid = this.defselected;
 
     this.accountService.setuserlineup(userTeam).subscribe(y => {
-      
+      this.accountService.setMessage("Roster Updated Successfully");
+      this.accountService.setShow(true);
     });
   }
 }

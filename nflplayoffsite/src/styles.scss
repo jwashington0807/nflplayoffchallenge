@@ -12,8 +12,8 @@ body {
 
 p, ol, ul, li, a {
     color: #FFF;
-    font-size: 1.4rem;
-    line-height: 3.2rem;
+    font-size: 1.0rem;
+    line-height: 1.0rem;
 }
 
 a {
@@ -29,12 +29,14 @@ a {
     position: relative;
     margin: auto;
     width: 50%;
+    margin-top: 50px;
+    padding-bottom: 75px;
 
     @media (max-width: 600px) {
         margin: 0px;
         width: 100%;
-        padding: 0 10px;
-        padding-bottom: 75px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 

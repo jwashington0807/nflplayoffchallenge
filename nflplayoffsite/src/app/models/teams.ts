@@ -13,7 +13,15 @@ export interface UserTeam {
 	teid: number,
 	pkid: number,
 	defid: number,
-	points: number
+	points: number,
+	qbmult: number,
+	wr1mult: number,
+	wr2mult: number,
+	rb1mult: number,
+	rb2mult: number,
+	temult: number,
+	pkmult: number,
+	defmult: number
 }
 
 export class UserTeamUpdate {

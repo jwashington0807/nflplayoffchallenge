@@ -22,6 +22,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { SiteproviderService } from './providers/siteprovider.service';
+import { ForgotComponent } from './pages/forgot/forgot.component';
+import { ResetComponent } from './pages/reset/reset.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { SiteproviderService } from './providers/siteprovider.service';
     HomeComponent,
     LeaderboardComponent,
     NotfoundComponent,
-    SignoutComponent
+    SignoutComponent,
+    ForgotComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,
